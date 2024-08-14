@@ -1,0 +1,94 @@
+#contact {
+  background-image: linear-gradient(
+    135deg,
+    $primary-color 0%,
+    $secondary-color 100%
+  );
+  -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
+  padding: 20rem 0 15rem 0; // Increased padding
+  margin-top: -15rem;
+  margin-bottom: -1px;
+  color: $white-color;
+
+  @include respond(tab-land) {
+    padding: 15rem 0; // Increased padding for tablet landscape
+    margin-top: 0;
+    -webkit-clip-path: none;
+    clip-path: none;
+  }
+
+  .section-title {
+    font-size: 4rem; // Larger title
+    margin-bottom: 3rem;
+  }
+
+  .section-description {
+    font-size: 1.8rem; // Larger description text
+    max-width: 800px;
+    margin: 0 auto 4rem;
+  }
+
+  .contact-wrapper {
+    max-width: 900px; // Wider container
+    margin: 4rem auto 0;
+    padding: 4rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+    &__text {
+      margin-bottom: 3rem;
+    }
+
+    &__text,
+    a {
+      font-size: 2.4rem;
+
+      @include respond(phone) {
+        font-size: 2rem;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 2rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.6rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 5px;
+    }
+
+    textarea {
+      height: 150px;
+    }
+
+    .btn-default {
+      background-color: $secondary-color;
+      color: $white-color;
+      padding: 1rem 2rem;
+      font-size: 1.8rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+  }
+
+  @include respond(phone) {
+    padding: 10rem 0;
+
+    .contact-wrapper {
+      padding: 2rem;
+    }
+  }
+}
