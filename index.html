@@ -17,16 +17,16 @@
       content="Portfolio, Computer Science, Software Development, Machine Learning, Data Analysis"
     />
     <meta property="og:title" content="Portfolio" />
-    <link rel="icon" type="image/png" href="./assets/profile.png" />
+    <link rel="icon" type="image/png" href="./assets/header.png" />
     <meta name="theme-color" content="#36d1dc" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="#" />
+    <meta property="og:url" content="ansh-bhandari.netlify.app" />
     <meta property="og:title" content=" Ansh Bhandari | Portfolio" />
     <meta
       property="og:description"
       content="Portfolio of a motivated Computer Science graduate student specializing in software development, machine learning, and data analysis."
     />
-    <meta property="og:image" content="./assets/devfolio.png" />
+    <meta property="og:image" content="./assets/portfolio.png" />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="#" />
@@ -35,7 +35,7 @@
       property="twitter:description"
       content="Portfolio of a motivated Computer Science graduate student specializing in software development, machine learning, and data analysis."
     />
-    <meta property="twitter:image" content="#" />
+    <meta property="twitter:image" content="./assets/portfolio.png" />
 
     <link rel="stylesheet" href="./css/main.css" />
     <link
@@ -109,7 +109,7 @@
           <li><a href="#hero"><i class="fa-solid fa-house-chimney"></i> Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact"><i class="fa-solid fa-address-card"></i> Contact</a></li>
+          <li><a href="#contact"><i class="fa-solid fa-address-card"></i> Contact Me</a></li>
           
       </ul>
   </nav>
@@ -145,8 +145,7 @@
               class="img-fluid"
               src="./assets/profile.png"
               alt="Profile Image"
-              width="450"
-              height="350"
+             
             />
           </div>
           <div class="about-wrapper__info">
@@ -237,6 +236,7 @@
                   class="cta-btn cta-btn--hero cta-btn--projects"
                   >Live</a
                 >
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a
                   href="https://github.com/Ansh0407/T-Une"
                   target="_blank"
@@ -327,7 +327,7 @@
               <a href="#" target="_blank" rel="noopener noreferrer">
                 <div class="thumbnail rounded">
                   <img
-                    src="./assets/project.png"
+                    src="./assets/harvestsphere.png"
                     class="img-fluid"
                     alt="Project Image"
                     width="1366"
@@ -344,7 +344,7 @@
     <!-- End Projects Section -->
 
     <!-- Contact Section -->
-    <section id="contact" >
+    <section id="contact">
       <div class="container">
         <h2 class="section-title text-center">Get in Touch</h2>
         <p class="section-description text-center">
@@ -355,14 +355,16 @@
         <div class="contact-wrapper w-100">
           <div class="card">
             <div class="card-body">
-              <form id="contact-form" class="w-100">
+              <form id="contact-form" class="w-100" action="https://api.web3forms.com/submit" method="POST" onsubmit="return handleSubmit(event)">
+                <input type="hidden" name="access_key" value="2d97cdf2-5592-4829-9af0-8274c10dcdc3">
                 <div class="form-group mb-4">
                   <label for="name">Your name</label>
                   <input
                     required
                     type="text"
-                    class="form-control placeholder col-12 placeholder-lg border-bottom "
+                    class="form-control placeholder col-12 placeholder-lg border-bottom"
                     id="name"
+                    name="name"
                     placeholder="Enter Name"
                   />
                 </div>
@@ -372,6 +374,7 @@
                     type="email"
                     class="form-control placeholder col-12 placeholder-lg border-bottom"
                     id="email"
+                    name="email"
                     placeholder="Enter Email id"
                     required
                   />
@@ -379,16 +382,16 @@
                 <div class="form-group mb-4">
                   <label for="message">Message</label>
                   <textarea
-                  class="form-control placeholder col-12 placeholder-lg border-bottom"
+                    class="form-control placeholder col-12 placeholder-lg border-bottom"
                     id="message"
+                    name="message"
                     rows="5"
                     placeholder="Enter Your Message"
                     required
                   ></textarea>
                 </div>
                 <button type="submit" class="btn btn-default submit w-100">
-                  <i class="fa fa-paper-plane" aria-hidden="true"></i> Send
-                  Message
+                  <i class="fa fa-paper-plane" aria-hidden="true"></i> Send Message
                 </button>
               </form>
             </div>
@@ -459,31 +462,26 @@
     <script type="text/javascript" src="./javascript/valtilt.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $('#contact-form').on('submit', function (event) {
-                event.preventDefault(); 
-                
-                const formData = {
-                    name: $('#name').val(),
-                    email: $('#email').val(),
-                    message: $('#message').val(),
-                };
-
-              
-                simulateAPICall(formData);
-            });
-
-            function simulateAPICall(data) {
-              
-                console.log('Simulating API call with data:', data);
-
-               
-                setTimeout(() => {
-                    alert('Message sent successfully!');
-                    $('#contact-form')[0].reset(); 
-                }, 1000);
-            }
+      function handleSubmit(event) {
+        event.preventDefault(); // Prevent the default form submission
+        const form = document.getElementById('contact-form');
+        
+        // Submit the form using AJAX
+        fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+        }).then(response => {
+          if (response.ok) {
+            alert('Message sent successfully!');
+            form.reset();
+            window.location.href = 'index.html'; 
+          } else {
+            alert('There was an issue sending your message.');
+          }
+        }).catch(error => {
+          alert('An error occurred. Please try again.');
         });
+      }
     </script>
   </body>
 </html>
