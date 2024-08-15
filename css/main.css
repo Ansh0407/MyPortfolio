@@ -548,22 +548,24 @@ section .row span {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width:100%;
+    
     max-width: 450px;
     margin: auto;
     overflow: hidden;
   }
   
   #about .about-wrapper__image img {
-    width: 100%;
-    height: auto;
+    width: 300px;      
+  height: 300px;
+  border-radius: 50%;
     transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out;
     filter: grayscale(100%);
   }
   
   #about .about-wrapper__image:hover img {
     filter: grayscale(0%);
-    transform: scale(1.05);
+    transform: scale(1.00);
   }
   
   #about .about-wrapper__info {
